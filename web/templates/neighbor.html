@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2 id="smiles-title">{{ smiles }}</h2>
+
+    <div id='drawing'>{{ bde_row['svg'] }}</div>
+
+    <div id='bde_reg'>
+        <p>
+            Predicted BDE: <em>{{ '{0:0.1f}'.format(bde_row['bde_pred']) }} kcal/mol</em>
+        </p>
+    </div>
+
+    <h3>Similar DFT-Calculated Bonds</h3>
+
+    <div class='container'>
+        <div class="row" id='frags'>
+            {% for key,value in neighbor_df.iterrows() %}
+                <div class="col-sm-6 col-md-6 media fragment">
+                    <div class='media-left'>{{ value['svg'] }}</div>
+                    <div class="media-body">
+                        <h4 class='media-heading'>{{ value['molecule'] }}</h4>
+                        <strong>BDE(DFT):</strong><em> {{ '{0:0.1f}'.format(value['bde']) }} kcal/mol</em><br/>
+                        <strong>Distance:</strong><em> {{ '{0:0.2f}'.format(value['distance']) }}</em><br/>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}
+

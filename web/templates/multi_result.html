@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <hr>
+    <h3>Bond Dissociation Energies (iterating over bond index)</h3>
+    <div class='container'>
+        {% for doc in docs %}
+            <hr>
+            <div id="smiles-header">
+                <h4 id="smiles-title">{{ doc["smiles"] }} </h4>
+                {% if doc["is_trained"] %}
+                    <span class="badge badge-success">In DFT Database</span>
+                {% endif %}
+                {% if not doc["is_trained"] %}
+                    <span class="badge badge-info">Not in DFT Database</span>
+                {% endif %}
+                {% if doc["has_untrained_atoms"] %}
+                    <span class="badge badge-warning">Untrained Atoms</span>
+                {% endif %}
+            </div>
+
+            <div class="row" id='frags' >
+                {% for prediction in doc["report"] %}
+                    <div class="col-sm-6 col-md-6 media fragment" style="margin-top: 10px">
+                        <div class='media-left' style="display: flex; justify-content: center; overflow: hidden;">
+                            <div style="transform: scale(100%);">
+                                {{ prediction["svg"] }}
+                            </div>
+                        </div>
+
+                        <div class="media-body">
+                            <h4 class='media-heading'>Bond Index {{ prediction["bond_index"] }}</h4>
+                            <strong>Bond Type:</strong> {{ prediction["bond_type"] }}<br/>
+
+                            {% for result in prediction["ML"] %}
+                                <strong>{{ result["notion"] }} ({{ result["model"] }}):</strong>
+                                <em> {{ result["value"] }} kcal/mol</em>
+                                <br/>
+                            {% endfor %}
+
+                            {% for result in prediction["DFT/Exp"] %}
+                                <strong>{{ result["notion"] }} ({{ result["model"] }}):</strong>
+                                <em> {{ result["value"] }} kcal/mol</em>
+                                <br/>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </div>
+
+
+{% endblock %}
