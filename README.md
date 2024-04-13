@@ -28,10 +28,10 @@ conda create --name bit2edgev2-bde --file /etc/requirements-conda.txt
 
 *Note*: There are some different of model sizing between each individual seed model because of feature cleaning that operated over the bit vector. However, most changes are minor and the model is still comparable when the performance difference between the validation set and testing set is minor. The "S" stands for the seed or single model with best of 3, and the "E" stands for the ensemble model and best of 1.
 
-Significant Number: 2-digit after comma
-Epochs (Avg): 50.6 ± 2.13
-Dataset: BDE-db dataset (PubChem-derived, Source: ALFABET) --> Train: 265k, Dev-Test: 25k
-Target: BDE (kcal/mol) ~ M06-2X/def2-TZVP
+- Significant Number: 2-digit after comma
+- Epochs (Avg): 50.6 ± 2.13 
+- Dataset: BDE-db dataset (PubChem-derived, Source: ALFABET) --> Train: 265k, Dev-Test: 12.5k (4.3 %) 
+- Target: BDE (kcal/mol) ~ M06-2X/def2-TZVP
 
 | Metrics      | Train-S       | Dev&Test-S   | Dev&Test-E   |
 |--------------|---------------|--------------|--------------|
@@ -42,6 +42,23 @@ Target: BDE (kcal/mol) ~ M06-2X/def2-TZVP
 | Out (> 5.0)  | 0.009 ± 0.003 | 1.04 ± 0.05  | 0.94 ± 0.03  |
 | Out (> 10.0) | 0.003 ± 0.001 | 0.17 ± 0.02  | 0.15 ± 0.02  |
 | -            | -             | -            | -            |
+
+## Model Evaluation (Extended)
+- Significant Number: 2-digit after comma
+- 5 trains on 5 seeds
+- Dataset: BDE-db dataset (PubChem-derived, Source: ALFABET) --> Train: 441k, Dev|Test: 38.9k (7.5%) 
+- Target: BDE (kcal/mol) ~ M06-2X/def2-TZVP
+- Arch: {6, 3} - 12.3M+ params - ECFP4/1024 FCFP6/1024 AP1024
+
+| Metrics      | BDE-S        | BDFE-S       | BDSCFE-S     |
+|--------------|--------------|--------------|--------------|
+| MAE          | 0.80 ± 0.02  | 0.79 ± 0.01  | 0.81 ± 0.02  |
+| RMSE         | 1.64 ± 0.07  | 1.63 ± 0.07  | 1.66 ± 0.07  |
+| Acc (< 1.0)  | 77.80 ± 0.59 | 78.45 ± 0.45 | 77.17 ± 0.70 |
+| Acc (< 2.5)  | 94.47 ± 0.17 | 94.87 ± 0.14 | 94.30 ± 0.20 |
+| Out (> 5.0)  | 1.40 ± 0.09  | 1.35 ± 0.10  | 1.43 ± 0.11  |
+| Out (> 10.0) | 0.32 ± 0.02  | 0.32 ± 0.03  | 0.33 ± 0.02  |
+| -            | -            | -            | -            |
 
 
 # References
