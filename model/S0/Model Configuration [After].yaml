@@ -1,0 +1,152 @@
+AMSGrad: false
+Beta_1: 0.9
+Beta_2: 0.999
+COMPUTING_DEVICE:
+  Computing Device: GPU
+  activate: false
+  warning: false
+Default Loss Keywords in TensorFlow:
+  delta: 3.5
+Epsilon: 1.0e-08
+Frequency: 1
+Initial Epoch: 0
+LR_LOGS:
+  Current-Epoch: 51
+  Current-LR: 0.00010264459248540277
+  Init_LR: 0.0015
+  LR-Logs:
+  - 0.0015
+  - 0.0017699999999999999
+  - 0.0020886
+  - 0.0024645479999999996
+  - 0.0029081666399999994
+  - 0.003431636635199999
+  - 0.0040493312295359985
+  - 0.004005032674738681
+  - 0.003961218733781501
+  - 0.003917884105124145
+  - 0.0038750235452236726
+  - 0.0038326318679000435
+  - 0.003790703943708579
+  - 0.003734267714447737
+  - 0.0036786717111767057
+  - 0.003623903424560202
+  - 0.003569950531502682
+  - 0.0035168008923755914
+  - 0.0034644425482859005
+  - 0.0034128637183853004
+  - 0.0013651454873541203
+  - 0.0013448211188877856
+  - 0.0013247993408467074
+  - 0.0013050756482463589
+  - 0.001285645603172695
+  - 0.0012665048337836028
+  - 0.0012476490333252195
+  - 0.0012290739591628932
+  - 0.001210775431826573
+  - 0.0011927493340704112
+  - 0.0004770997336281645
+  - 0.00046999664397854565
+  - 0.0004629993055566352
+  - 0.00045610614393176794
+  - 0.0004493156081134976
+  - 0.0004467554121649322
+  - 0.00044420980418788766
+  - 0.0004416787010602447
+  - 0.00043916202013351307
+  - 0.0004366596792301327
+  - 0.00043417159664079055
+  - 0.0004316976911217525
+  - 0.00042923788189221026
+  - 0.00042679208863164396
+  - 0.0004243602314771992
+  - 0.00042194223102107935
+  - 0.00041953800830795264
+  - 0.000417147484832374
+  - 0.0004147705825362216
+  - 0.00041240722380614804
+  - 0.00010310180595153701
+  - 0.00010264459248540277
+Lookahead: false
+Lookahead-step-size: 0.5
+Lookahead-sync-period: 6
+Loss Function: Huber
+MIN_LR: 1.0e-06
+MODEL_STRUCTURE:
+  Attempt-Sparse: false
+  BatchNorm-Config: !!python/tuple
+  - 0.98
+  - 0.0001
+  E-model BatchNorm: false
+  E-model Bond-Env Scaling: 2
+  E-model Core-Branch-Act: mish
+  E-model Dropout: &id001 !!python/tuple
+  - 0
+  - 0
+  - 0
+  E-model LBondInfo Scaling: 2
+  E-model Last-Act: null
+  E-model Mapping First M-model Layer: true
+  E-model Merge-Act: relu
+  G-model Core-Act: relu
+  G-model Last-Act: relu
+  M-model Coef for Reduction: 1.0
+  M-model Coef for Threshold Remainder: 2.0
+  M-model Core-Act: relu
+  M-model Dropout: *id001
+  M-model Last-Act: null
+  M-model Num Layer: 3
+  M-model Pruning Ratio:
+  - 0.1
+  - 0.0
+  - 0.0
+  M-model Ratio Pruning First: false
+  M-model Re-Boost Percentage for Radical-Env: 1
+  Model Core-Act: relu
+  Output Last-Act: null
+  Predict-Notion:
+  - BDE
+  - BDFE
+  Predict-Notion-Index: 0
+  use_bias: true
+Maximum Epochs: 100
+ModelKey: '03'
+Momentum: 0
+Nesterov: false
+Optimizer: Adam
+Package: TensorFlow
+Queue: 32
+Rectify: false
+SMA: 5.0
+Shuffle: true
+TRAIN_CALLBACKS:
+  Callbacks: true
+  Checkpoint:
+    TF-Keras Checkpoint [Weight] {epoch:03d}:
+      mode: min
+      monitor: val_loss
+      save_best_only: true
+      save_weights_only: true
+      verbose: 0
+    TF-Keras Checkpoint {epoch:03d}:
+      mode: min
+      monitor: val_loss
+      save_best_only: true
+      save_weights_only: false
+      verbose: 0
+  Histogram Checking: Histogram Profile.csv
+  Learning Rate Scheduler: true
+  Model Checkpoint: true
+  NaN Encounter: false
+  TensorBoard: null
+  Weight-Decay-Boost: null
+Testing Batch Size: 512
+Total Steps: 0
+Training Batch Size: 512
+Unchanged Epochs: 20
+Updating Progress: 0.003
+Warmup_proportion: 0.1
+Weight Decay: 0
+Workers: 3
+centered: false
+verbose: true

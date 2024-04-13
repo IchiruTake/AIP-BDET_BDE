@@ -1,0 +1,82 @@
+AtomPairs_Chiral: false
+AtomPairs_nBits: 1024
+Avalon_nBits: 0
+CRI-Learner: false
+Cis-Trans Atoms: !!python/tuple
+- C
+- N
+Cis-Trans Counting: true
+Cis-Trans Encoding: true
+Core-Atoms: !!python/tuple
+- !!python/tuple
+  - F
+  - Cl
+  - Br
+  - I
+  - P
+  - S
+  - C
+  - H
+  - O
+  - N
+- null
+ECFP_Chiral: false
+ECFP_Radius: 2
+ECFP_nBits: 1024
+FCFP_Chiral: false
+FCFP_Radius: 3
+FCFP_nBits: 1024
+FP-StereoChemistry: true
+LBI-StereoChemistry: true
+LBI_Mode: 1
+LayeredRDKit_maxPath: 7
+LayeredRDKit_nBits: 0
+Legacy: false
+MACCS: false
+MHECFP_Chiral: false
+MHECFP_Radius: 2
+MHECFP_nBits: 0
+MHFCFP_Chiral: false
+MHFCFP_Radius: 3
+MHFCFP_nBits: 0
+Neighbor-Atoms: !!python/tuple
+- !!python/tuple
+  - !!python/tuple
+    - F
+    - Cl
+  - !!python/tuple
+    - Br
+    - I
+  - !!python/tuple
+    - P
+    - S
+  - C
+  - H
+  - O
+  - N
+- null
+Pattern_Tautomer: false
+Pattern_nBits: 0
+RDKit_maxPath: 7
+RDKit_nBits: 0
+RE-Learner: false
+Radius: !!python/tuple
+- 6
+- 4
+- 2
+SECFP_Info: !!python/tuple
+- true
+- true
+- true
+SECFP_Radius: 2
+SECFP_Seed: 0
+SECFP_nBits: 0
+Torsion_Chiral: false
+Torsion_Size: 4
+Torsion_nBits: 0
+caching: false
+caching-radius: 2
+hot-cache-freq-check: 5000
+hot-cache-freq-rotate: 100000
+hot-cache-rotate: false
+save-cache-after-n-entry: 2
